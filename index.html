@@ -1,0 +1,749 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivani Shrivastava | Profile</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0a0a0a;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #222;
+        }
+
+        .nav-content {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #aaa;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #6d28d9;
+            filter: blur(180px);
+            opacity: 0.22;
+            top: 10%;
+            right: -100px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .eyebrow {
+            color: #a78bfa;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 90px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #8b5cf6;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #aaa;
+            font-size: 19px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 22px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .btn.primary {
+            background: #8b5cf6;
+            border-color: #8b5cf6;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            border-color: #8b5cf6;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 110px 0;
+            border-top: 1px solid #1c1c1c;
+        }
+
+        .section-label {
+            color: #8b5cf6;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            letter-spacing: -2px;
+            margin-bottom: 45px;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .about-text {
+            color: #aaa;
+            font-size: 17px;
+        }
+
+        .facts {
+            display: grid;
+            gap: 18px;
+        }
+
+        .fact {
+            padding: 20px;
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+        }
+
+        .fact small {
+            display: block;
+            color: #777;
+            margin-bottom: 4px;
+        }
+
+        .fact strong {
+            font-size: 16px;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 10px 16px;
+            border: 1px solid #333;
+            border-radius: 30px;
+            color: #ccc;
+            background: #111;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            border-color: #8b5cf6;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* PROJECTS */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .project {
+            padding: 28px;
+            border: 1px solid #222;
+            background: #111;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            border-color: #555;
+        }
+
+        .project-number {
+            color: #8b5cf6;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .project h3 {
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            color: #999;
+            font-size: 15px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .tag {
+            font-size: 11px;
+            padding: 5px 9px;
+            border-radius: 5px;
+            background: #1c1c1c;
+            color: #aaa;
+        }
+
+        /* EXPERIENCE */
+        .timeline {
+            border-left: 1px solid #333;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 45px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            width: 9px;
+            height: 9px;
+            background: #8b5cf6;
+            border-radius: 50%;
+            left: -35px;
+            top: 8px;
+        }
+
+        .timeline-item span {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .timeline-item h3 {
+            margin: 6px 0;
+            font-size: 21px;
+        }
+
+        .timeline-item p {
+            color: #999;
+        }
+
+        /* EDUCATION */
+        .education-card {
+            padding: 30px;
+            border: 1px solid #222;
+            background: #111;
+            border-radius: 15px;
+            margin-bottom: 18px;
+        }
+
+        .education-card h3 {
+            font-size: 22px;
+        }
+
+        .education-card p {
+            color: #999;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact h2 {
+            font-size: 55px;
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: #999;
+            margin-bottom: 30px;
+        }
+
+        .contact-email {
+            display: inline-block;
+            font-size: 18px;
+            color: #a78bfa;
+        }
+
+        footer {
+            border-top: 1px solid #222;
+            padding: 25px 0;
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 750px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .about-grid,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+            .contact h2 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">Shivani<span>.</span></div>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="container hero-content">
+
+            <div class="eyebrow">BE IT • Developer • Tech Enthusiast</div>
+
+            <h1>
+                Hi, I'm<br>
+                <span>Shivani.</span>
+            </h1>
+
+            <p>
+                A second-year Information Technology engineering student
+                interested in software development, AI, problem solving,
+                and building practical technology projects.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn primary">View Projects</a>
+                <a href="#contact" class="btn">Get in Touch</a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+
+            <div class="section-label">01 — About</div>
+            <h2 class="section-title">A little about me.</h2>
+
+            <div class="about-grid">
+
+                <div class="about-text">
+                    <p>
+                        I'm Shivani Shrivastava, currently pursuing my
+                        Bachelor of Engineering in Information Technology
+                        at Thakur College of Engineering and Technology.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        I enjoy learning by building things — from
+                        programming projects and database systems to
+                        AI-focused ideas and hackathon prototypes.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        I'm also involved in technical community activities
+                        and currently contribute as an Event Coordinator
+                        for the OpenAI IT Club at TCET.
+                    </p>
+                </div>
+
+                <div class="facts">
+
+                    <div class="fact">
+                        <small>Currently</small>
+                        <strong>2nd Year BE — Information Technology</strong>
+                    </div>
+
+                    <div class="fact">
+                        <small>College</small>
+                        <strong>Thakur College of Engineering & Technology</strong>
+                    </div>
+
+                    <div class="fact">
+                        <small>Location</small>
+                        <strong>Mumbai, Maharashtra, India</strong>
+                    </div>
+
+                    <div class="fact">
+                        <small>Focus</small>
+                        <strong>Software • AI • Databases • Problem Solving</strong>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+
+            <div class="section-label">02 — Skills</div>
+            <h2 class="section-title">Things I work with.</h2>
+
+            <div class="skills">
+                <div class="skill">C</div>
+                <div class="skill">C++</div>
+                <div class="skill">Python</div>
+                <div class="skill">Java</div>
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">MySQL</div>
+                <div class="skill">MongoDB</div>
+                <div class="skill">Pandas</div>
+                <div class="skill">Git</div>
+                <div class="skill">GitHub</div>
+                <div class="skill">VS Code</div>
+                <div class="skill">AI Tools</div>
+                <div class="skill">Problem Solving</div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="container">
+
+            <div class="section-label">03 — Projects</div>
+            <h2 class="section-title">Things I've built.</h2>
+
+            <div class="projects">
+
+                <div class="project">
+                    <div class="project-number">PROJECT 01</div>
+
+                    <h3>CARBONX</h3>
+
+                    <p>
+                        An AI-assisted MRV and blockchain-based carbon
+                        credit trading platform designed to support
+                        transparent carbon-credit management.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">Blockchain</span>
+                        <span class="tag">Carbon Credits</span>
+                        <span class="tag">MRV</span>
+                    </div>
+                </div>
+
+
+                <div class="project">
+                    <div class="project-number">PROJECT 02</div>
+
+                    <h3>Dynamic Support Routing</h3>
+
+                    <p>
+                        A web-based routing system designed to dynamically
+                        direct support requests to appropriate resources
+                        based on the request and available capacity.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Web</span>
+                    </div>
+                </div>
+
+
+                <div class="project">
+                    <div class="project-number">PROJECT 03</div>
+
+                    <h3>Blood Donation Management System</h3>
+
+                    <p>
+                        A database management project for maintaining
+                        donor information, blood groups, hospitals,
+                        donations and related blood-bank records.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">MySQL</span>
+                        <span class="tag">DBMS</span>
+                        <span class="tag">SQL</span>
+                    </div>
+                </div>
+
+
+                <div class="project">
+                    <div class="project-number">PROJECT 04</div>
+
+                    <h3>Railway Reservation System</h3>
+
+                    <p>
+                        A school hackathon project based around railway
+                        reservation and train running-status functionality.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Programming</span>
+                        <span class="tag">Database</span>
+                        <span class="tag">Hackathon</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="container">
+
+            <div class="section-label">04 — Experience</div>
+            <h2 class="section-title">What I've been involved in.</h2>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <span>2026 — Present</span>
+
+                    <h3>Event Coordinator — OpenAI IT Club, TCET</h3>
+
+                    <p>
+                        Contributing to the planning and execution of
+                        technical events, workshops, speaker sessions,
+                        hackathons and student-focused technology activities.
+                    </p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <span>College Technical Activities</span>
+
+                    <h3>Hackathons & Technical Projects</h3>
+
+                    <p>
+                        Participated in technical projects and hackathon
+                        activities involving software development,
+                        databases, AI concepts and problem solving.
+                    </p>
+                </div>
+
+
+                <div class="timeline-item">
+                    <span>School</span>
+
+                    <h3>Scouts & Guides</h3>
+
+                    <p>
+                        Participated in Scouts and Guides activities,
+                        including district and state-level camps.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <div class="container">
+
+            <div class="section-label">05 — Education</div>
+            <h2 class="section-title">My academic journey.</h2>
+
+            <div class="education-card">
+                <h3>Bachelor of Engineering — Information Technology</h3>
+                <p>Thakur College of Engineering and Technology</p>
+                <p>Currently in 2nd Year</p>
+            </div>
+
+            <div class="education-card">
+                <h3>Higher Secondary Education</h3>
+                <p>Central Railway School & Junior College, Kalyan</p>
+                <p>Science Stream — PCM</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container contact">
+
+            <div class="section-label">06 — Contact</div>
+
+            <h2>Let's build something.</h2>
+
+            <p>
+                I'm always interested in learning, collaborating on
+                technical projects and exploring new ideas.
+            </p>
+
+            <!-- Replace with your actual email -->
+            <a class="contact-email"
+               href="mailto:your-email@example.com">
+                your-email@example.com
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            © 2026 Shivani Shrivastava. Built with HTML, CSS & JavaScript.
+        </div>
+    </footer>
+
+
+    <script>
+        // Small interaction: highlight the navigation link
+        // corresponding to the section currently visible.
+
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-links a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = "";
+
+                if (link.getAttribute("href") === "#" + current) {
+                    link.style.color = "#a78bfa";
+```
